@@ -1,13 +1,306 @@
-body {
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --dark--less: #1B1D1F;
+  --dark--extra: #111315;
+  --text--color1: #6F757C;
+  --text--color2: #FEF7EE;
+  --bg--color1: #F6C768;
+  --bg--color2: #BEE3CC;
+  --text--color3: #ED735D;
+  --fs--main-heading: 2rem;
+  --fs--body: 1rem;
+  --fs--label: 0.875rem;
+  --fs--small-text: 0.625rem;
+  --fs--price-text: 0.75rem;
+}
+
+body {
+  min-height: 100vh;
+  padding: 200px 2em;
+  font-size: var(--fs--body);
+  background-image: url('../public/bg-cafe.jpg');
+  background-color: var(--dark--extra);
+  background-repeat: no-repeat;
+  /* */
+}
+
+.App {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--dark--less);
+  padding: 3rem 2em;
+  border-radius: 2em;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.App {
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--fs--main-heading);
+  color: var(--text--color2);
+  font-weight: 600;
+  margin-bottom: 1em;
+
+}
+
+.intro {
+  color: var(--text--color1);
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+  gap: 2em;
+}
+
+.filter button {
+  background: none;
+  border: 0;
+  color: var(--text--color2);
+  font-size: var(--fs--body);
+  outline: transparent;
+  padding: .75em 1.25em;
+  border-radius: .5em;
+  cursor: pointer;
+}
+
+button.active {
+  background: var(--text--color1);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  margin-bottom: 3em;
+}
+
+.card img {
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.card .popular {
+  font-size: var(--fs--label);
+  position: absolute;
+  left: .6em;
+  top: .5em;
+  background-color: var(--bg--color1);
+  padding: .25em .5em;
+  border-radius: 1em;
+  font-weight: 600;
+}
+
+.name {
+  font-size: var(--fs--body);
+  color: var(--text--color2);
+  font-weight: 500;
+  margin: .5em 0;
+}
+
+.price {
+  background-color: var(--bg--color2);
+  padding: .35em;
+  border-radius: .25em;
+  margin-left: auto;
+  margin: .5em 0;
+  font-size: var(--fs--price-text);
+}
+
+.soldout {
+  color: var(--text--color3);
+}
+
+.rating {
+  color: var(--text--color2);
+  display: flex;
+  align-items: center;
+}
+
+.votes {
+  color: var(--text--color1);
+}
+
+.sort-the-list {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  outline: 0;
+  border: 0;
+}
+
+.sort-the-list:focus {
+  outline: 0;
+}
+
+option:hover {
+  background-color: var(--bg--color2);
+}
+
+select {}
+
+label {
+  color: var(--bg--color2);
+  font-size: var(--fs--main-heading);
 }
