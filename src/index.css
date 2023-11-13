@@ -150,7 +150,7 @@ table {
 
 body {
   min-height: 100vh;
-  padding: 200px 2em;
+  padding: 100px 2em;
   font-size: var(--fs--body);
   background-image: url('../public/bg-cafe.jpg');
   background-color: var(--dark--extra);
