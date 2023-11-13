@@ -32,7 +32,7 @@ function Filter({ setList, setActiveBtn, activeBtn }) {
 
   return (
     <div className='filter'>
-      <Button text="All Products" setList={setList} onClickHandler={() => { setList(list => simpleCoffeeList) }} num="1" activeBtn={activeBtn} setActiveBtn={setActiveBtn} />
+      <Button text="All Products" setList={setList} onClickHandler={() => { setList(list => [...simpleCoffeeList]) }} num="1" activeBtn={activeBtn} setActiveBtn={setActiveBtn} />
       <Button text="Available Now" setList={setList} onClickHandler={() => { setList(list => list.filter(item => item.available)) }} num="2" activeBtn={activeBtn} setActiveBtn={setActiveBtn} />
     </div>
   )
@@ -48,10 +48,10 @@ function Button({ text, onClickHandler, num, activeBtn, setActiveBtn }) {
 function CoffeeList({ list, setList, setActiveBtn }) {
   function manageSorting(value) {
     setActiveBtn(btn => "1")
-    if (value === "default") setList(list => simpleCoffeeList);
+    if (value === "default") setList(list => [...simpleCoffeeList]);
     if (value === "popularity") setList(list => simpleCoffeeList.filter(item => item.popular));
-    if (value === "pricing") setList(list => simpleCoffeeList.sort((itemA, itemB) => +(itemA.price).slice(1) - +((itemB.price).slice(1))));
-    if (value === "rating") setList(list => simpleCoffeeList.sort((itemA, itemB) => +itemB.rating - +itemA.rating))
+    if (value === "pricing") setList(list => [...simpleCoffeeList].sort((itemA, itemB) => +(itemA.price).slice(1) - +((itemB.price).slice(1))));
+    if (value === "rating") setList(list => [...simpleCoffeeList].sort((itemA, itemB) => +itemB.rating - +itemA.rating))
   }
   return (
     <>
